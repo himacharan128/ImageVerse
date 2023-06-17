@@ -7,18 +7,15 @@ import { FormField, Loader } from '../components';
 
 const CreatePost = () => {
   const navigate = useNavigate();
-
   const [form, setForm] = useState({
     name: '',
     prompt: '',
     photo: '',
   });
-
   const [generatingImg, setGeneratingImg] = useState(false);
   const [loading, setLoading] = useState(false);
 
   const handleChange = (e) => setForm({ ...form, [e.target.name]: e.target.value });
-
   const handleSurpriseMe = () => {
     const randomPrompt = getRandomPrompt(form.prompt);
     setForm({ ...form, prompt: randomPrompt });
@@ -81,7 +78,11 @@ const CreatePost = () => {
     <section className="max-w-7xl mx-auto">
       <div>
         <h1 className="font-extrabold text-[#222328] text-[32px]">Create</h1>
-        <p className="mt-2 text-[#666e75] text-[14px] max-w-[500px]">Generate an imaginative image through DALL-E AI and share it with the community</p>
+        <p className="mt-2 text-[#666e75] text-[14px] max-w-3xl">Introducing ImageVerse: Empowering Creativity 
+        through Text-to-Image Conversion ImageVerse is a dynamic web application that combines the power of cutting-edge
+         technologies to unlock a world of visual creativity. By harnessing the potential of ReactJS, MongoDB, Tailwind 
+         CSS, Express, Cloudinary, and OpenAI's remarkable DALL-E model, ImageVerse revolutionizes the way users can express 
+         themselves through captivating images generated from text.</p>
       </div>
 
       <form className="mt-16 max-w-3xl" onSubmit={handleSubmit}>
@@ -106,7 +107,8 @@ const CreatePost = () => {
             handleSurpriseMe={handleSurpriseMe}
           />
 
-          <div className="relative bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 w-64 p-3 h-64 flex justify-center items-center">
+          <div className="relative bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg
+           focus:ring-blue-500 focus:border-blue-500 w-64 p-3 h-64 flex justify-center items-center">
             { form.photo ? (
               <img
                 src={form.photo}
@@ -140,7 +142,7 @@ const CreatePost = () => {
         </div>
 
         <div className="mt-10">
-          <p className="mt-2 text-[#666e75] text-[14px]">** Once you have created the image you want, you can share it with others in the community **</p>
+          <p className="mt-2 text-[#666e75] text-[14px]">You can share this with Community</p>
           <button
             type="submit"
             className="mt-3 text-white bg-[#6469ff] font-medium rounded-md text-sm w-full sm:w-auto px-5 py-2.5 text-center"
